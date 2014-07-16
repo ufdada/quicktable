@@ -19,4 +19,9 @@ The original table plugin is required for this to work!
 		quickTableStyle: 'border-collapse: collapse;' // Content of the style-attribute of the inserted table (default: null)
 	});
 ```
+
+####Known Issues:
+-Some missing translations
+-The selected table and its cells have hardcoded css styles
+
 For more Information see original post [here](https://github.com/ckeditor/ckeditor-dev/pull/92)
