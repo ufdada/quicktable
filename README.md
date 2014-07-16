@@ -9,6 +9,9 @@ The original code was submitted by [danyaPostfactum](https://github.com/danyaPos
 
 The original table plugin is required for this to work!
 
+####Installation:
+Just copy the whole directory (quicktable) in the plugins directory
+
 ####Configuration:
 ```javascript
 	CKEDITOR.replace( 'editor1', {
@@ -21,7 +24,7 @@ The original table plugin is required for this to work!
 ```
 
 ####Known Issues:
--Some missing translations
--The selected table and its cells have hardcoded css styles
+- Some missing translations
+- The selected table and its cells have hardcoded css styles
 
 For more Information see original post [here](https://github.com/ckeditor/ckeditor-dev/pull/92)
