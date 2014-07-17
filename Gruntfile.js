@@ -12,12 +12,12 @@ module.exports = function (grunt) {
 			], 
 			options: {
 				jshintrc: '.jshintrc'
-			},
+			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint')
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('test', ['jshint'])
-	grunt.registerTask('default', ['test'])
+	grunt.registerTask('test', ['jshint']);
+	grunt.registerTask('default', ['test']);
 };
