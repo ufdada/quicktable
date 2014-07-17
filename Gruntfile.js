@@ -13,11 +13,21 @@ module.exports = function (grunt) {
 			options: {
 				jshintrc: '.jshintrc'
 			}
+		},
+		lint5: {
+			dirPath: "samples",
+			templates: [
+				"quicktable.html"
+			]
+			//,
+			// ignoreList: [
+			// ]
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-lint5');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('test', ['jshint']);
+	grunt.registerTask('test', ['jshint', 'lint5']);
 	grunt.registerTask('default', ['test']);
 };
