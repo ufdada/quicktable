@@ -1,7 +1,7 @@
 quicktable
 ==========
 
-###A quicktable plugin for ckeditor 4
+###A quicktable plugin for ckeditor 4 [![Build Status](https://travis-ci.org/ufdada/quicktable.svg?branch=master)](https://travis-ci.org/ufdada/quicktable)
 
 This plugin adds a quicktable feature to the existing table plugin.
 
