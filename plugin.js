@@ -25,7 +25,9 @@
 			}
 
 			table.setAttribute( 'border', quickBorder );
-			quickStyle && table.setAttribute( 'style', quickStyle );
+			if (quickStyle) {
+				table.setAttribute( 'style', quickStyle );
+			}
 			table.setStyle( 'width', quickWidth );
 			editor.insertElement( table );
 		}

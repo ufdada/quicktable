@@ -12,6 +12,7 @@
     "proto":         true,
     "regexdash":     true,
     "strict":        false,
+	"scripturl":     true,
     "sub":           true,
     "trailing":      true,
     "undef":         false,
