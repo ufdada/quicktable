@@ -1,9 +1,11 @@
 {
-    "asi":           true,
+    "asi":           false,
     "browser":       true,
-    "debug":         true,
+    "curly":		 true,
+    "debug":         false,
     "devel":         true,
     "eqeqeq":        false, 
+    "es3":        	 true, 
     "evil":          true,
     "maxparams":     5,
     "maxdepth":      3,
@@ -21,6 +23,7 @@
         "exports",
         "phantom",
         "window",
-        "require"
+        "require",
+		"CKEDITOR"
     ]
 }
