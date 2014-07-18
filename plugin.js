@@ -6,6 +6,7 @@
 			quickColumns = editor.config.quickTableColumns || 10,
 			quickBorder = editor.config.quickTableBorder || '1',
 			quickStyle = editor.config.quickTableStyle || null,
+			quickClass = editor.config.quickTableClass || '',
 			quickWidth = editor.config.quickTableWidth || '100%';
 			
 		function makeElement( name ) {
@@ -25,9 +26,8 @@
 			}
 
 			table.setAttribute( 'border', quickBorder );
-			if (quickStyle) {
-				table.setAttribute( 'style', quickStyle );
-			}
+			table.setAttribute( 'class', quickClass );
+			table.setStyles( quickStyle );
 			table.setStyle( 'width', quickWidth );
 			editor.insertElement( table );
 		}

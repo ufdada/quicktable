@@ -39,6 +39,7 @@ module.exports = function (grunt) {
 							'!Gruntfile.js', 
 							'!package.json', 
 							'!LICENSE', 
+							'!CHANGELOG.md', 
 							'!README.md', 
 							'!*.zip'
 						], 
