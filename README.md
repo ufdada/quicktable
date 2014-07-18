@@ -18,9 +18,12 @@ Just copy the whole directory (quicktable) in the plugins directory
 	CKEDITOR.replace( 'editor1', {
 		quickTableRows: 20, // Count of rows in the quicktable (default: 8)
 		quickTableColumns: 20, // Count of columns in the quicktable (default: 10)
-		quickTableBorder: '1', // Border of the inserted table (default: 1)
-		quickTableWidth: '90%', // Width of the inserted table (default: 100%)
-		quickTableStyle: 'border-collapse: collapse;' // Content of the style-attribute of the inserted table (default: null)
+		quickTableBorder: '1', // Border of the inserted table (default: '1')
+		quickTableWidth: '90%', // Width of the inserted table (default: '500px')
+		quickTableStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
+		quickTableClass: 'test' // Class of the inserted table (default: '')
+		quickTableCellPadding: '0' // Cell padding of the inserted table (default: '1')
+		quickTableCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
 	});
 ```
 
