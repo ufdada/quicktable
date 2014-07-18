@@ -13,6 +13,7 @@ The original table plugin is required for this to work!
 Just copy the whole directory (quicktable) in the plugins directory
 
 ####Configuration:
+
 ```javascript
 	CKEDITOR.replace( 'editor1', {
 		quickTableRows: 20, // Count of rows in the quicktable (default: 8)

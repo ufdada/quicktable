@@ -12,4 +12,3 @@ Quicktable plugin for ckeditor 4.x
 
 ###Version 1.0.0
 - Initial Release
-
