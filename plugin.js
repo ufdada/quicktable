@@ -7,7 +7,9 @@
 			quickBorder = editor.config.quickTableBorder || '1',
 			quickStyle = editor.config.quickTableStyle || null,
 			quickClass = editor.config.quickTableClass || '',
-			quickWidth = editor.config.quickTableWidth || '100%';
+			quickCellPadding = editor.config.quickTableCellPadding || '1',
+			quickCellSpacing = editor.config.quickTableCellSpacing || '1',
+			quickWidth = editor.config.quickTableWidth || '500px';
 			
 		function makeElement( name ) {
 			return new CKEDITOR.dom.element( name, editor.document );
@@ -25,6 +27,8 @@
 				}
 			}
 
+			table.setAttribute( 'cellpadding', quickCellPadding );
+			table.setAttribute( 'cellspacing', quickCellSpacing );
 			table.setAttribute( 'border', quickBorder );
 			table.setAttribute( 'class', quickClass );
 			table.setStyles( quickStyle );
