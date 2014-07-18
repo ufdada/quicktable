@@ -1,4 +1,5 @@
 /* jshint node: true */
+var fs = require('fs');
 
 module.exports = function (grunt) {
 	"use strict";
@@ -73,12 +74,36 @@ module.exports = function (grunt) {
 		}
 	});
 
+	function replaceContent(file, search, replace) {
+		fs.readFile(file, 'utf8', function (err,data) {
+			if (err) {
+				return grunt.log.writeln(err);
+			}
+			
+			var result = data.replace(search, replace);
+			
+			fs.writeFile(file, result, 'utf8', function (err) {
+				if (err) {
+					return grunt.log.writeln(err);
+				}
+			});
+		});
+	}
+	
 	grunt.loadNpmTasks('grunt-markdown');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-lint5');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	grunt.registerTask('test', ['jshint', 'lint5']);
-	grunt.registerTask('build', ['test', 'compress', 'markdown']);
+	grunt.registerTask('build', ['test', 'beforeCompress', 'compress', 'afterCompress', 'markdown']);
 	grunt.registerTask('default', ['test']);
+	//Custom tasks
+	grunt.registerTask('beforeCompress', 'Running before Compression', function() {
+		replaceContent('samples/quicktable.html', /http\:\/\/cdn.ckeditor.com\/4.4.3\/full-all\//g, '../../../');
+	});
+	grunt.registerTask('afterCompress', 'Running after Compression', function() {
+		replaceContent('samples/quicktable.html', /\.\.\/\.\.\/\.\.\//g, 'http://cdn.ckeditor.com/4.4.3/full-all/');
+	});
+	
 };
