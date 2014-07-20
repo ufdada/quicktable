@@ -5,10 +5,21 @@ quicktable
 
 This plugin adds a quicktable feature to the existing table plugin.
 
-The original code was submitted by [danyaPostfactum](https://github.com/danyaPostfactum) as a pull request for the table plugin. I just extracted the code and made a seperate plugin out of it and added some options to it (see sample in plugin directory)
+The original code was submitted by [danyaPostfactum](https://github.com/danyaPostfactum) as a pull request for the table plugin. 
+I just extracted the code and made a seperate plugin out of it and added some options to it (see sample in plugin directory)
 
-The original table plugin is required for this to work!
+__*The original table plugin is required for this to work!*__
 
+####Building:
+This requires node.js and npm to be installed. 
+Then open the directory with the git-shell and type 'npm install' to install the required packages.
+After that you can execute grunt with 2 options:
+
+1. `grunt test`<br>
+	Linting the js and html files (check for syntax errors etc.)
+2. `grunt build`<br>
+	`grunt test` and compressing the plugin into a zip file. The zip file is located in the *release* directory.
+	
 ####Installation:
 Just copy the whole directory (quicktable) in the plugins directory
 
