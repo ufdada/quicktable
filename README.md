@@ -11,15 +11,19 @@ I just extracted the code and made a seperate plugin out of it and added some op
 __*The original table plugin is required for this to work!*__
 
 ####Building:
-This requires node.js and npm to be installed. 
-Then open the directory with the git-shell and type 'npm install' to install the required packages.
-After that you can execute grunt with 2 options:
+This requires **node.js** and **npm** to be installed.
+
+Then open the directory with the *git-shell* and type `npm install` to install the required packages.
+
+After that you can execute grunt with the following options:
 
 1. `grunt test`<br>
-	Linting the js and html files (check for syntax errors etc.)
-2. `grunt build`<br>
-	`grunt test` and compressing the plugin into a zip file. The zip file is located in the *release* directory.
-	
+ - Linting the js and html files (check for syntax errors etc.). See [JS Hint Configuration File](https://raw.githubusercontent.com/ufdada/quicktable/master/.jshintrc) for options
+2. `grunt build`
+ - `grunt test` and compressing the plugin into a zip file. The zip file is located in the *release* directory.
+3. `grunt build-only`
+ - Just building without linting and markdown compile *(not recommended)*
+
 ####Installation:
 Just copy the whole directory (quicktable) in the plugins directory
 

@@ -97,6 +97,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	grunt.registerTask('test', ['jshint', 'lint5']);
+	grunt.registerTask('build-only', ['beforeCompress', 'compress', 'afterCompress']);
 	grunt.registerTask('build', ['test', 'beforeCompress', 'compress', 'afterCompress', 'markdown']);
 	grunt.registerTask('default', ['test']);
 	//Custom tasks
