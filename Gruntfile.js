@@ -1,4 +1,4 @@
-/* jshint node: true */
+﻿/* jshint node: true */
 var fs = require('fs');
 
 module.exports = function (grunt) {
@@ -28,7 +28,9 @@ module.exports = function (grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: 'release/<%= pkg.name %>-<%= pkg.version %>.zip'
+					archive: 'release/<%= pkg.name %>-<%= pkg.version %>.zip',
+					level: 9,
+					pretty: true
 				},
 				files: [
 					{

@@ -117,46 +117,6 @@
 				
 				block.keys = this.assignKeys(block.keys);
 			},
-
-			keyNavigation: function( evt ) {
-				var keystroke = evt.data.getKeystroke(),
-					row = selection.row,
-					column = selection.column;
-
-				switch ( keystroke ) {
-					case 37: // ARROW-LEFT
-						column--;
-						break;
-					case 39: // ARROW-RIGHT
-						column++;
-						break;
-					case 40: // ARROW-DOWN
-						row++;
-						break;
-					case 38: // ARROW-UP
-						row--;
-						break;
-					case 13: // ENTER
-					case 32: // SPACE
-						insertTable( row + 1, column + 1 );
-						return;
-					default:
-						return;
-				}
-
-				if ( row < 0 || column < 0 ) {
-					this.panel.hide();
-					return;
-				}
-
-				if ( row > quickRows - 1 || column > quickColumns - 1 ) {
-					editor.execCommand( 'table' );
-				}
-
-				select( this.caption, this.table, row + 1, column + 1 );
-				evt.data.preventDefault();
-				evt.data.stopPropagation();
-			},
 			
 			assignKeys: function(keys){
 				var rtl = editor.lang.dir == 'rtl';
@@ -171,19 +131,58 @@
 			},
 			
 			addEvents: function(tableWrapper){
-				var table = tableWrapper.getFirst();
+				var table = this.table = tableWrapper.getFirst();
+				var caption = this.caption;
 				table.on( 'mouseleave', function( evt ) {
-					select( this.caption, table, 1, 1 );
+					select( caption, table, 1, 1 );
 				} );
 				table.on( 'mousemove', function( evt ) {
 					var target = evt.data.getTarget();
 					if ( target.getName() == 'td' ) {
 						var i = parseInt( target.getAttribute( 'data-i' ), 10 );
 						var j = parseInt( target.getAttribute( 'data-j' ), 10 );
-						select( this.caption, table, i + 1, j + 1 );
+						select( caption, table, i + 1, j + 1 );
 					}
 				} );
-				tableWrapper.on( 'keydown', this.keyNavigation );
+				tableWrapper.on( 'keydown', function( evt ) {
+					var keystroke = evt.data.getKeystroke(),
+						row = selection.row,
+						column = selection.column;
+
+					switch ( keystroke ) {
+						case 37: // ARROW-LEFT
+							column--;
+							break;
+						case 39: // ARROW-RIGHT
+							column++;
+							break;
+						case 40: // ARROW-DOWN
+							row++;
+							break;
+						case 38: // ARROW-UP
+							row--;
+							break;
+						case 13: // ENTER
+						case 32: // SPACE
+							insertTable( row + 1, column + 1 );
+							return;
+						default:
+							return;
+					}
+
+					if ( row < 0 || column < 0 ) {
+						this.panel.hide();
+						return;
+					}
+
+					if ( row > quickRows - 1 || column > quickColumns - 1 ) {
+						editor.execCommand( 'table' );
+					}
+					select( caption, table, row + 1, column + 1 );
+					evt.data.preventDefault();
+					evt.data.stopPropagation();
+				});
+				
 				return table;
 			},
 			
