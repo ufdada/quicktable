@@ -75,14 +75,16 @@ module.exports = function (grunt) {
 		}
 	});
 
-	function replaceContent(file, search, replace) {
+	function replaceContent(file, searchArray) {
 		fs.readFile(file, 'utf8', function (err,data) {
 			if (err) {
 				return grunt.log.writeln(err);
 			}
 			
-			var result = data.replace(search, replace);
-			
+			var result = data;
+			for (var i = 0; i < searchArray.length;i++){
+				result = result.replace(searchArray[i][0], searchArray[i][1]);
+			}
 			fs.writeFile(file, result, 'utf8', function (err) {
 				if (err) {
 					return grunt.log.writeln(err);
@@ -102,10 +104,18 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', ['test']);
 	//Custom tasks
 	grunt.registerTask('beforeCompress', 'Running before Compression', function() {
-		replaceContent('samples/quicktable.html', /http\:\/\/cdn.ckeditor.com\/4.4.3\/full-all\//g, '../../../');
+		replaceContent('samples/quicktable.html', [ 
+			[/http\:\/\/cdn.ckeditor.com\/4.4.3\/full-all\//g, '../../../'],
+			[/language: 'en'/g, '// language: \'en\''],
+			[/<!-- REMOVE BEGIN -->/g, '<!-- REMOVE BEGIN --><!--']
+		]);
 	});
 	grunt.registerTask('afterCompress', 'Running after Compression', function() {
-		replaceContent('samples/quicktable.html', /\.\.\/\.\.\/\.\.\//g, 'http://cdn.ckeditor.com/4.4.3/full-all/');
+		replaceContent('samples/quicktable.html', [
+			[/\.\.\/\.\.\/\.\.\//g, 'http://cdn.ckeditor.com/4.4.3/full-all/'],
+			[/\/\/ language: 'en'/g, 'language: \'en\''],
+			[/<!-- REMOVE BEGIN --><!--/g, '<!-- REMOVE BEGIN -->']
+		]);
 	});
 	
 };
