@@ -35,15 +35,15 @@ module.exports = function (grunt) {
 						src: [
 							'**', 
 							// Exclude files and folders
-							'!node_modules/**', 
-							'!release/**', 
-							'!.*', 
-							'!Gruntfile.js', 
-							'!package.json', 
-							'!LICENSE', 
-							'!CHANGELOG.md', 
-							'!README.md', 
-							'!template.jst', 
+							'!node_modules/**',
+							'!release/**',
+							'!.*',
+							'!*.log',
+							'!Gruntfile.js',
+							'!package.json',
+							'!LICENSE',
+							'!*.md',
+							'!template.jst',
 							'!*.zip'
 						], 
 						dest: '<%= pkg.name %>/'

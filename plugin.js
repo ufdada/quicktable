@@ -2,14 +2,15 @@
 	requires: 'table,panelbutton,floatpanel',
 	lang: 'af,ar,bg,bn,bs,ca,cs,cy,da,de,el,en,en-au,en-ca,en-gb,eo,es,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
 	afterInit: function( editor ) {
-		var quickRows = editor.config.quickTableRows || 8,
-			quickColumns = editor.config.quickTableColumns || 10,
-			quickBorder = editor.config.quickTableBorder || '1',
-			quickStyle = editor.config.quickTableStyle || null,
-			quickClass = editor.config.quickTableClass || '',
-			quickCellPadding = editor.config.quickTableCellPadding || '1',
-			quickCellSpacing = editor.config.quickTableCellSpacing || '1',
-			quickWidth = editor.config.quickTableWidth || '500px';
+		var conf = editor.config,
+			quickRows = conf.qtRows || 8,
+			quickColumns = conf.qtColumns || 10,
+			quickBorder = conf.qtBorder || '1',
+			quickStyle = conf.qtStyle || null,
+			quickClass = conf.qtClass || '',
+			quickCellPadding = conf.qtCellPadding || '1',
+			quickCellSpacing = conf.qtCellSpacing || '1',
+			quickWidth = conf.qtWidth || '500px';
 			
 		function makeElement( name ) {
 			return new CKEDITOR.dom.element( name, editor.document );
@@ -106,22 +107,87 @@
 				this.caption = caption;
 
 				var tableWrapper = CKEDITOR.dom.element.createFromHtml( renderQuickTable(panel) );
+				this.table = this.addEvents(tableWrapper);
+				block.element.append( tableWrapper );
+
+				var moreButton = this.createMoreButton();
+				block.element.append( moreButton );
+
+				CKEDITOR.ui.fire( 'ready', this );
+				
+				block.keys = this.assignKeys(block.keys);
+			},
+
+			keyNavigation: function( evt ) {
+				var keystroke = evt.data.getKeystroke(),
+					row = selection.row,
+					column = selection.column;
+
+				switch ( keystroke ) {
+					case 37: // ARROW-LEFT
+						column--;
+						break;
+					case 39: // ARROW-RIGHT
+						column++;
+						break;
+					case 40: // ARROW-DOWN
+						row++;
+						break;
+					case 38: // ARROW-UP
+						row--;
+						break;
+					case 13: // ENTER
+					case 32: // SPACE
+						insertTable( row + 1, column + 1 );
+						return;
+					default:
+						return;
+				}
+
+				if ( row < 0 || column < 0 ) {
+					this.panel.hide();
+					return;
+				}
+
+				if ( row > quickRows - 1 || column > quickColumns - 1 ) {
+					editor.execCommand( 'table' );
+				}
+
+				select( this.caption, this.table, row + 1, column + 1 );
+				evt.data.preventDefault();
+				evt.data.stopPropagation();
+			},
+			
+			assignKeys: function(keys){
+				var rtl = editor.lang.dir == 'rtl';
+				keys[ rtl ? 37 : 39 ] = 'next'; // ARROW-RIGHT
+				keys[ 40 ] = 'next'; // ARROW-DOWN
+				keys[ 9 ] = 'next'; // TAB
+				keys[ rtl ? 39 : 37 ] = 'prev'; // ARROW-LEFT
+				keys[ 38 ] = 'prev'; // ARROW-UP
+				keys[ CKEDITOR.SHIFT + 9 ] = 'prev'; // SHIFT + TAB
+				keys[ 32 ] = 'click'; // SPACE
+				return keys;
+			},
+			
+			addEvents: function(tableWrapper){
 				var table = tableWrapper.getFirst();
 				table.on( 'mouseleave', function( evt ) {
-					select( caption, table, 1, 1 );
+					select( this.caption, table, 1, 1 );
 				} );
 				table.on( 'mousemove', function( evt ) {
 					var target = evt.data.getTarget();
 					if ( target.getName() == 'td' ) {
 						var i = parseInt( target.getAttribute( 'data-i' ), 10 );
 						var j = parseInt( target.getAttribute( 'data-j' ), 10 );
-						select( caption, table, i + 1, j + 1 );
+						select( this.caption, table, i + 1, j + 1 );
 					}
 				} );
-				tableWrapper.on( 'keydown', keyNavigation );
-				block.element.append( tableWrapper );
-				this.table = table;
-
+				tableWrapper.on( 'keydown', this.keyNavigation );
+				return table;
+			},
+			
+			createMoreButton: function() {
 				var moreButton = new CKEDITOR.dom.element( 'a' );
 				moreButton.setAttributes( {
 					_cke_focus: 1,
@@ -137,61 +203,10 @@
 					editor.execCommand( 'table' );
 					evt.data.preventDefault();
 				} );
-				block.element.append( moreButton );
-
-				CKEDITOR.ui.fire( 'ready', this );
-
-				var keys = block.keys;
-				var rtl = editor.lang.dir == 'rtl';
-				keys[ rtl ? 37 : 39 ] = 'next'; // ARROW-RIGHT
-				keys[ 40 ] = 'next'; // ARROW-DOWN
-				keys[ 9 ] = 'next'; // TAB
-				keys[ rtl ? 39 : 37 ] = 'prev'; // ARROW-LEFT
-				keys[ 38 ] = 'prev'; // ARROW-UP
-				keys[ CKEDITOR.SHIFT + 9 ] = 'prev'; // SHIFT + TAB
-				keys[ 32 ] = 'click'; // SPACE
-
-				function keyNavigation( evt ) {
-					var keystroke = evt.data.getKeystroke(),
-						row = selection.row,
-						column = selection.column;
-
-					switch ( keystroke ) {
-						case 37: // ARROW-LEFT
-							column--;
-							break;
-						case 39: // ARROW-RIGHT
-							column++;
-							break;
-						case 40: // ARROW-DOWN
-							row++;
-							break;
-						case 38: // ARROW-UP
-							row--;
-							break;
-						case 13: // ENTER
-						case 32: // SPACE
-							insertTable( row + 1, column + 1 );
-							return;
-						default:
-							return;
-					}
-
-					if ( row < 0 || column < 0 ) {
-						panel.hide();
-						return;
-					}
-
-					if ( row > quickRows - 1 || column > quickColumns - 1 ) {
-						editor.execCommand( 'table' );
-					}
-
-					select( caption, table, row + 1, column + 1 );
-					evt.data.preventDefault();
-					evt.data.stopPropagation();
-				}
+				
+				return moreButton;
 			},
-
+			
 			onOpen: function() {
 				select( this.caption, this.table, 1, 1 );
 			}

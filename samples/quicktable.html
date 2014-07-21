@@ -36,14 +36,14 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 	&lt;script type="text/javascript"&gt;
 		CKEDITOR.replace( 'editor1', {
 			extraPlugins: 'quicktable',
-			quickTableRows: 20, <span style="color: green">// Count of rows in the quicktable (default: 8)</span>
-			quickTableColumns: 20, <span style="color: green">// Count of columns in the quicktable (default: 10)</span>
-			quickTableBorder: '1', <span style="color: green">// Border of the inserted table (default: '1')</span>
-			quickTableWidth: '90%', <span style="color: green">// Width of the inserted table (default: '500px')</span>
-			quickTableStyle: { 'border-collapse' : 'collapse' }, <span style="color: green">// Content of the style-attribute of the inserted table (default: null)</span>
-			quickTableClass: 'test' <span style="color: green">// Class of the inserted table (default: '')</span>
-			quickTableCellPadding: '0' <span style="color: green">// Cell padding of the inserted table (default: '1')</span>
-			quickTableCellSpacing: '0' <span style="color: green">// Cell spacing of the inserted table (default: '1')</span>
+			qtRows: 20, <span style="color: green">// Count of rows in the quicktable (default: 8)</span>
+			qtColumns: 20, <span style="color: green">// Count of columns in the quicktable (default: 10)</span>
+			qtBorder: '1', <span style="color: green">// Border of the inserted table (default: '1')</span>
+			qtWidth: '90%', <span style="color: green">// Width of the inserted table (default: '500px')</span>
+			qtStyle: { 'border-collapse' : 'collapse' }, <span style="color: green">// Content of the style-attribute of the inserted table (default: null)</span>
+			qtClass: 'test', <span style="color: green">// Class of the inserted table (default: '')</span>
+			qtCellPadding: '0', <span style="color: green">// Cell padding of the inserted table (default: '1')</span>
+			qtCellSpacing: '0' <span style="color: green">// Cell spacing of the inserted table (default: '1')</span>
 		});
 	&lt;/script&gt;
 	</pre>
@@ -58,12 +58,14 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 			language: 'en',
 			toolbar: [['Source'],['Bold', 'Italic', 'Underline'], ['Image', 'Format', 'Table']],
 			// plugin options example
-			quickTableRows: 20,
-			quickTableColumns: 20,
-			quickTableBorder: '1',
-			quickTableWidth: '90%',
-			quickTableStyle: { 'border-collapse' : 'collapse' },
-			quickTableClass: 'test'
+			qtRows: 20,
+			qtColumns: 20,
+			qtBorder: '1',
+			qtWidth: '90%',
+			qtStyle: { 'border-collapse' : 'collapse' },
+			qtClass: 'test',
+			qtCellPadding: '0',
+			qtCellSpacing: '0'
 		} );
 		
 		CKEDITOR.replace( 'editor2', {

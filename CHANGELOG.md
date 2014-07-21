@@ -1,5 +1,12 @@
 Quicktable plugin for ckeditor 4.x
 ==========
+###Version 1.0.3
+- short option values *(older ones are not supported anymore)*
+- modify compiled sample so it refers to local ckeditor
+- updated configuration sample
+- example includes 2 editors (default and custom configuration)
+- code refactoring to decrease code complexity and count of statements
+
 ###Version 1.0.2
 - Adding cellspacing option
 - Adding cellpadding option

@@ -18,7 +18,7 @@ Then open the directory with the *git-shell* and type `npm install` to install t
 
 After that you can execute grunt with the following options:
 
-1. `grunt test`<br>
+1. `grunt test`
  - Linting the js and html files (check for syntax errors etc.). See [JS Hint Configuration File](https://raw.githubusercontent.com/ufdada/quicktable/master/.jshintrc) for options
 2. `grunt build`
  - `grunt test` and compressing the plugin into a zip file. The zip file is located in the *release* directory.
@@ -32,14 +32,14 @@ Just copy the whole directory (quicktable) in the plugins directory
 
 ```javascript
 	CKEDITOR.replace( 'editor1', {
-		quickTableRows: 20, // Count of rows in the quicktable (default: 8)
-		quickTableColumns: 20, // Count of columns in the quicktable (default: 10)
-		quickTableBorder: '1', // Border of the inserted table (default: '1')
-		quickTableWidth: '90%', // Width of the inserted table (default: '500px')
-		quickTableStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
-		quickTableClass: 'test' // Class of the inserted table (default: '')
-		quickTableCellPadding: '0' // Cell padding of the inserted table (default: '1')
-		quickTableCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
+		qtRows: 20, // Count of rows in the quicktable (default: 8)
+		qtColumns: 20, // Count of columns in the quicktable (default: 10)
+		qtBorder: '1', // Border of the inserted table (default: '1')
+		qtWidth: '90%', // Width of the inserted table (default: '500px')
+		qtStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
+		qtClass: 'test' // Class of the inserted table (default: '')
+		qtCellPadding: '0' // Cell padding of the inserted table (default: '1')
+		qtCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
 	});
 ```
 
