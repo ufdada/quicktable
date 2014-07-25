@@ -37,8 +37,8 @@ Just copy the whole directory (quicktable) in the plugins directory
 		qtBorder: '1', // Border of the inserted table (default: '1')
 		qtWidth: '90%', // Width of the inserted table (default: '500px')
 		qtStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
-		qtClass: 'test' // Class of the inserted table (default: '')
-		qtCellPadding: '0' // Cell padding of the inserted table (default: '1')
+		qtClass: 'test', // Class of the inserted table (default: '')
+		qtCellPadding: '0', // Cell padding of the inserted table (default: '1')
 		qtCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
 	});
 ```
