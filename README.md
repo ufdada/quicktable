@@ -18,12 +18,12 @@ Then open the directory with the *git-shell* and type `npm install` to install t
 
 After that you can execute grunt with the following options:
 
-1. `grunt test`<br>
- - Linting the js and html files (check for syntax errors etc.). See [JS Hint Configuration File](https://raw.githubusercontent.com/ufdada/quicktable/master/.jshintrc) for options
+1. `grunt test`
+ - Linting the js and html files (check for syntax errors etc.). See [JS Hint Configuration File](https://raw.githubusercontent.com/ufdada/quicktable/master/.jshintrc) for options __*(default)*__
 2. `grunt build`
  - `grunt test` and compressing the plugin into a zip file. The zip file is located in the *release* directory.
 3. `grunt build-only`
- - Just building without linting and markdown compile *(not recommended)*
+ - Just generating the zip file without linting and markdown compile *(not recommended)*
 
 ####Installation:
 Just copy the whole directory (quicktable) in the plugins directory
