@@ -9,8 +9,8 @@
     "evil":          true,
     "maxparams":     5,
     "maxdepth":      3,
-    "maxstatements": 40,
-    "maxcomplexity": 15,
+    "maxstatements": 15,
+    "maxcomplexity": 11,
     "proto":         true,
     "regexdash":     true,
     "strict":        false,
@@ -19,7 +19,7 @@
     "trailing":      true,
     "undef":         true,
 
-    "predef"     : [
+    "predef" : [
         "exports",
         "phantom",
         "window",

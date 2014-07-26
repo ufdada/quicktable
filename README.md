@@ -1,4 +1,4 @@
-quicktable
+﻿quicktable
 ==========
 [![Build Status](https://travis-ci.org/ufdada/quicktable.svg?branch=master)](https://travis-ci.org/ufdada/quicktable)
 [![devDependency Status](https://david-dm.org/ufdada/quicktable/dev-status.svg)](https://david-dm.org/ufdada/quicktable#info=devDependencies)
@@ -32,14 +32,14 @@ Just copy the whole directory (quicktable) in the plugins directory
 
 ```javascript
 	CKEDITOR.replace( 'editor1', {
-		quickTableRows: 20, // Count of rows in the quicktable (default: 8)
-		quickTableColumns: 20, // Count of columns in the quicktable (default: 10)
-		quickTableBorder: '1', // Border of the inserted table (default: '1')
-		quickTableWidth: '90%', // Width of the inserted table (default: '500px')
-		quickTableStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
-		quickTableClass: 'test' // Class of the inserted table (default: '')
-		quickTableCellPadding: '0' // Cell padding of the inserted table (default: '1')
-		quickTableCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
+		qtRows: 20, // Count of rows in the quicktable (default: 8)
+		qtColumns: 20, // Count of columns in the quicktable (default: 10)
+		qtBorder: '1', // Border of the inserted table (default: '1')
+		qtWidth: '90%', // Width of the inserted table (default: '500px')
+		qtStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
+		qtClass: 'test', // Class of the inserted table (default: '')
+		qtCellPadding: '0', // Cell padding of the inserted table (default: '1')
+		qtCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
 	});
 ```
 
