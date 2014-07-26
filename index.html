@@ -1,0 +1,138 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Quicktable</title>
+  <meta name="description" content="A quicktable plugin for ckeditor 4">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Quicktable</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A quicktable plugin for ckeditor 4</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/ufdada/quicktable/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/ufdada/quicktable/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/ufdada/quicktable" class="code">View Quicktable on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="quicktable" class="anchor" href="#quicktable"><span class="octicon octicon-link"></span></a>quicktable</h1>
+
+<p><a href="https://travis-ci.org/ufdada/quicktable"><img src="https://travis-ci.org/ufdada/quicktable.svg?branch=master" alt="Build Status"></a>
+<a href="https://david-dm.org/ufdada/quicktable#info=devDependencies"><img src="https://david-dm.org/ufdada/quicktable/dev-status.svg" alt="devDependency Status"></a></p>
+
+<h3>
+<a name="a-quicktable-plugin-for-ckeditor-4" class="anchor" href="#a-quicktable-plugin-for-ckeditor-4"><span class="octicon octicon-link"></span></a>A quicktable plugin for ckeditor 4</h3>
+
+<p>This plugin adds a quicktable feature to the existing table plugin.</p>
+
+<p>The original code was submitted by <a href="https://github.com/danyaPostfactum">danyaPostfactum</a> as a pull request for the table plugin. 
+I just extracted the code and made a seperate plugin out of it and added some options to it (see sample in plugin directory)</p>
+
+<p><strong><em>The original table plugin is required for this to work!</em></strong></p>
+
+<h4>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building:</h4>
+
+<p>This requires <strong>node.js</strong> and <strong>npm</strong> to be installed.</p>
+
+<p>Then open the directory with the <em>git-shell</em> and type <code>npm install</code> to install the required packages.</p>
+
+<p>After that you can execute grunt with the following options:</p>
+
+<ol>
+<li>
+<code>grunt test</code>
+
+<ul>
+<li>Linting the js and html files (check for syntax errors etc.). See <a href="https://raw.githubusercontent.com/ufdada/quicktable/master/.jshintrc">JS Hint Configuration File</a> for options <strong><em>(default)</em></strong>
+</li>
+</ul>
+</li>
+<li>
+<code>grunt build</code>
+
+<ul>
+<li>
+<code>grunt test</code> and compressing the plugin into a zip file. The zip file is located in the <em>release</em> directory.</li>
+</ul>
+</li>
+<li>
+<code>grunt build-only</code>
+
+<ul>
+<li>Just generating the zip file without linting and markdown compile <em>(not recommended)</em>
+</li>
+</ul>
+</li>
+</ol><h4>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation:</h4>
+
+<p>Just copy the whole directory (quicktable) in the plugins directory</p>
+
+<h4>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration:</h4>
+
+<div class="highlight highlight-javascript"><pre>    <span class="nx">CKEDITOR</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="s1">'editor1'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">qtRows</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// Count of rows in the quicktable (default: 8)</span>
+        <span class="nx">qtColumns</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// Count of columns in the quicktable (default: 10)</span>
+        <span class="nx">qtBorder</span><span class="o">:</span> <span class="s1">'1'</span><span class="p">,</span> <span class="c1">// Border of the inserted table (default: '1')</span>
+        <span class="nx">qtWidth</span><span class="o">:</span> <span class="s1">'90%'</span><span class="p">,</span> <span class="c1">// Width of the inserted table (default: '500px')</span>
+        <span class="nx">qtStyle</span><span class="o">:</span> <span class="p">{</span> <span class="s1">'border-collapse'</span> <span class="o">:</span> <span class="s1">'collapse'</span> <span class="p">},</span> <span class="c1">// Content of the style-attribute of the inserted table (default: null)</span>
+        <span class="nx">qtClass</span><span class="o">:</span> <span class="s1">'test'</span><span class="p">,</span> <span class="c1">// Class of the inserted table (default: '')</span>
+        <span class="nx">qtCellPadding</span><span class="o">:</span> <span class="s1">'0'</span><span class="p">,</span> <span class="c1">// Cell padding of the inserted table (default: '1')</span>
+        <span class="nx">qtCellSpacing</span><span class="o">:</span> <span class="s1">'0'</span> <span class="c1">// Cell spacing of the inserted table (default: '1')</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="known-issues" class="anchor" href="#known-issues"><span class="octicon octicon-link"></span></a>Known Issues:</h4>
+
+<ul>
+<li>Some missing translations</li>
+<li>The selected table and its cells have hardcoded css styles</li>
+</ul><p>For more Information see original post <a href="https://github.com/ckeditor/ckeditor-dev/pull/92">here</a></p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/ufdada" class="avatar"><img src="https://avatars1.githubusercontent.com/u/3787188?s=60" width="48" height="48"/></a> <a href="https://github.com/ufdada">ufdada</a> maintains <a href="https://github.com/ufdada/quicktable">Quicktable</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/ufdada/quicktable/tarball/master" class="tar">tar</a><a href="https://github.com/ufdada/quicktable/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
