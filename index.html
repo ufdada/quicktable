@@ -120,17 +120,16 @@ I just extracted the code and made a seperate plugin out of it and added some op
 <h4>
 <a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration:</h4>
 
-<pre>    <span class="nx">CKEDITOR</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="s1">'editor1'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">qtRows</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// Count of rows</span>
-        <span class="nx">qtColumns</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">// Count of columns</span>
-        <span class="nx">qtBorder</span><span class="o">:</span> <span class="s1">'1'</span><span class="p">,</span> <span class="c1">// Border of inserted table</span>
-        <span class="nx">qtWidth</span><span class="o">:</span> <span class="s1">'90%'</span><span class="p">,</span> <span class="c1">// Width of inserted table</span>
-        <span class="nx">qtStyle</span><span class="o">:</span> <span class="p">{</span> <span class="s1">'border-collapse'</span> <span class="o">:</span> <span class="s1">'collapse'</span> <span class="p">},</span>
-        <span class="nx">qtClass</span><span class="o">:</span> <span class="s1">'test'</span><span class="p">,</span> <span class="c1">// Class of inserted table</span>
-        <span class="nx">qtCellPadding</span><span class="o">:</span> <span class="s1">'0'</span><span class="p">,</span> <span class="c1">// Cell padding of inserted table</span>
-        <span class="nx">qtCellSpacing</span><span class="o">:</span> <span class="s1">'0'</span> <span class="c1">// Cell spacing of inserted table</span>
-    <span class="p">});</span>
-</pre>
+<pre><code class="lang-javascript">    CKEDITOR.replace( <span class="string">'editor1'</span>, {
+        quickTableRows: <span class="number">20</span>, <span class="comment">// Count of rows in the quicktable (default: 8)</span>
+        quickTableColumns: <span class="number">20</span>, <span class="comment">// Count of columns in the quicktable (default: 10)</span>
+        quickTableBorder: <span class="string">'1'</span>, <span class="comment">// Border of the inserted table (default: '1')</span>
+        quickTableWidth: <span class="string">'90%'</span>, <span class="comment">// Width of the inserted table (default: '500px')</span>
+        quickTableStyle: { <span class="string">'border-collapse'</span> : <span class="string">'collapse'</span> }, <span class="comment">// Content of the style-attribute of the inserted table (default: null)</span>
+        quickTableClass: <span class="string">'test'</span> <span class="comment">// Class of the inserted table (default: '')</span>
+        quickTableCellPadding: <span class="string">'0'</span> <span class="comment">// Cell padding of the inserted table (default: '1')</span>
+        quickTableCellSpacing: <span class="string">'0'</span> <span class="comment">// Cell spacing of the inserted table (default: '1')</span>
+    });</code></pre>
 
 <h4>
 <a name="known-issues" class="anchor" href="#known-issues"><span class="octicon octicon-link"></span></a>Known Issues:</h4>
