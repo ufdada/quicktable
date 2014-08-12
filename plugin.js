@@ -35,6 +35,9 @@
 			table.setStyles( quickStyle );
 			table.setStyle( 'width', quickWidth );
 			editor.insertElement( table );
+			
+			// Fire event for showborders plugin (so hidden borders are visible)
+			editor.fire('removeFormatCleanup', table);
 		}
 
 		function renderQuickTable(panel) {
