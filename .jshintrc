@@ -9,7 +9,7 @@
     "evil":          true,
     "maxparams":     5,
     "maxdepth":      3,
-    "maxstatements": 15,
+    "maxstatements": 20,
     "maxcomplexity": 11,
     "proto":         true,
     "regexdash":     true,
