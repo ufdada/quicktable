@@ -10,7 +10,7 @@
     "maxparams":     5,
     "maxdepth":      3,
     "maxstatements": 20,
-    "maxcomplexity": 11,
+    "maxcomplexity": 12,
     "proto":         true,
     "regexdash":     true,
     "strict":        false,

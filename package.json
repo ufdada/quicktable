@@ -1,7 +1,7 @@
 {
   "name": "quicktable",
   "description": "A quicktable plugin for ckeditor 4",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": [
     "quicktable",
     "ckeditor"

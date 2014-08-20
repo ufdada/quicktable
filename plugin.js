@@ -10,7 +10,10 @@
 			quickClass = conf.qtClass || '',
 			quickCellPadding = conf.qtCellPadding || '1',
 			quickCellSpacing = conf.qtCellSpacing || '1',
-			quickWidth = conf.qtWidth || '500px';
+			quickWidth = conf.qtWidth || '500px',
+			quickPreviewSize = conf.qtPreviewSize || '14px',
+			quickPreviewBorder = conf.qtPreviewBorder || '1px solid #aaa',
+			quickPreviewBackground = conf.qtPreviewBackground || '#e5e5e5';
 			
 		function makeElement( name ) {
 			return new CKEDITOR.dom.element( name, editor.document );
@@ -49,12 +52,12 @@
 			} );
 
 			output.push( '<a style="display:block" _cke_focus=1 hidefocus=true href="javascript:void(1)">' +
-				'<table role="presentation" cellspacing=0 cellpadding=0 style="width: 154px; margin: 0 auto 3px;table-layout:fixed;border-collapse:collapse;border: 1px solid #aaa">' );
+				'<table role="presentation" cellspacing=1 cellpadding=1 style="width: 100%; margin: 0 auto 3px;table-layout:fixed;">' );
 
 			for ( var i = 0; i < quickRows; i++ ) {
 				output.push( '<tr>' );
 				for ( var j = 0; j < quickColumns; j++ ) {
-					output.push( '<td style="border: 1px solid #aaa;width:14px;height:14px;" data-i="' + i + '" data-j="' + j + '"' +
+					output.push( '<td style="border: ' + quickPreviewBorder + ';width:'+quickPreviewSize+';height:'+quickPreviewSize+';" data-i="' + i + '" data-j="' + j + '"' +
 						' onclick="CKEDITOR.tools.callFunction(', clickFn, ',\'', i, '\',\'', j, '\'); return false;"' +
 					'></td>' );
 				}
@@ -74,7 +77,7 @@
 				for ( var j = 0; j < cells.length; j++ ) {
 					var cell = cells[j];
 					if ( i < rowCount && j < columnCount ) {
-						cell.style.background = '#E5E5E5';
+						cell.style.background = quickPreviewBackground;
 					} else {
 						cell.style.background = '';
 					}

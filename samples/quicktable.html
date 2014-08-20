@@ -38,12 +38,15 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 			extraPlugins: 'quicktable',
 			qtRows: 20, <span style="color: green">// Count of rows in the quicktable (default: 8)</span>
 			qtColumns: 20, <span style="color: green">// Count of columns in the quicktable (default: 10)</span>
-			qtBorder: '1', <span style="color: green">// Border of the inserted table (default: '1')</span>
+			qtBorder: '0', <span style="color: green">// Border of the inserted table (default: '1')</span>
 			qtWidth: '90%', <span style="color: green">// Width of the inserted table (default: '500px')</span>
 			qtStyle: { 'border-collapse' : 'collapse' }, <span style="color: green">// Content of the style-attribute of the inserted table (default: null)</span>
 			qtClass: 'test', <span style="color: green">// Class of the inserted table (default: '')</span>
 			qtCellPadding: '0', <span style="color: green">// Cell padding of the inserted table (default: '1')</span>
-			qtCellSpacing: '0' <span style="color: green">// Cell spacing of the inserted table (default: '1')</span>
+			qtCellSpacing: '0', <span style="color: green">// Cell spacing of the inserted table (default: '1')</span>
+			qtPreviewBorder: '4px double black', <span style="color: green">// Border of the preview table (default: '1px solid #aaa')</span>
+			qtPreviewSize: '4px', <span style="color: green">// Cell size of the preview table (default: '14px')</span>
+			qtPreviewBackground: '#c8def4' <span style="color: green">// Cell background of the preview table on hover (default: '#e5e5e5')</span>
 		});
 	&lt;/script&gt;
 	</pre>
@@ -64,12 +67,15 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 			// plugin options example
 			qtRows: 20,
 			qtColumns: 20,
-			qtBorder: '1',
+			qtBorder: '0',
 			qtWidth: '90%',
 			qtStyle: { 'border-collapse' : 'collapse' },
 			qtClass: 'test',
 			qtCellPadding: '0',
-			qtCellSpacing: '0'
+			qtCellSpacing: '0',
+			qtPreviewBorder: '1px dotted black',
+			qtPreviewSize: '6px',
+			qtPreviewBackground: '#c8def4'
 		} );
 
 	</script>

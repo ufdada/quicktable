@@ -39,12 +39,14 @@ Just copy the whole directory (quicktable) in the plugins directory
 		qtStyle: { 'border-collapse' : 'collapse' }, // Content of the style-attribute of the inserted table (default: null)
 		qtClass: 'test', // Class of the inserted table (default: '')
 		qtCellPadding: '0', // Cell padding of the inserted table (default: '1')
-		qtCellSpacing: '0' // Cell spacing of the inserted table (default: '1')
+		qtCellSpacing: '0', // Cell spacing of the inserted table (default: '1')
+		qtPreviewBorder: '4px double black', // Border of the preview table (default: '1px solid #aaa')
+		qtPreviewSize: '4px', // Cell size of the preview table (default: '14px')
+		qtPreviewBackground: '#c8def4' // Cell background of the preview table on hover (default: '#e5e5e5')
 	});
 ```
 
 ####Known Issues:
 - Some missing translations
-- The selected table and its cells have hardcoded css styles
 
 For more Information see original post [here](https://github.com/ckeditor/ckeditor-dev/pull/92)

@@ -1,5 +1,13 @@
 ﻿Quicktable plugin for ckeditor 4.x
 ==========
+###Version 1.0.5
+- If the border gets disabled (`config.qtBorder = 0`) it isn't necessary to set the qtClass to `cke_show_border` anymore
+	- Event `removeFormatCleanup` is fired if table gets inserted into the editor
+- Small changes to the preview table design (no table border, cellspacing and cellpadding of 1)
+- Adding option for preview table cell border
+- Adding option for preview table cell background on hover
+- Adding option for preview table cell size
+
 ###Version 1.0.4
 - fix refactoring errors (table dimensions didn't get updated anymore)
 	```javascript
