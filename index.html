@@ -119,6 +119,17 @@ I just extracted the code and made a seperate plugin out of it and added some op
 
 <h4>
 <a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog:</h4>
+<h5 id="version-1-0-5">Version 1.0.5</h3>
+<ul>
+<li>If the border gets disabled (<code>config.qtBorder = 0</code>) it isn&#39;t necessary to set the qtClass to <code>cke_show_border</code> anymore<ul>
+<li>Event <code>removeFormatCleanup</code> is fired if table gets inserted into the editor</li>
+</ul>
+</li>
+<li>Small changes to the preview table design (no table border, cellspacing and cellpadding of 1)</li>
+<li>Adding option for preview table cell border</li>
+<li>Adding option for preview table cell background on hover</li>
+<li>Adding option for preview table cell size</li>
+</ul>
 <h5 id="version-1-0-4">Version 1.0.4</h5>
 <ul>
 <li>fix refactoring errors (table dimensions didn't get updated anymore)</li>
@@ -157,7 +168,6 @@ I just extracted the code and made a seperate plugin out of it and added some op
 
 <ul>
 <li>Some missing translations</li>
-<li>The selected table and its cells have hardcoded css styles</li>
 </ul><p>For more Information see original post <a href="https://github.com/ckeditor/ckeditor-dev/pull/92">here</a></p>
         </article>
       </div>
