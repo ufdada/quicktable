@@ -33,7 +33,7 @@
 
 			conf.qtCellPadding !== null && table.setAttribute( 'cellpadding', quickCellPadding );
 			conf.qtCellSpacing !== null && table.setAttribute( 'cellspacing', quickCellSpacing );
-			table.setAttribute( 'border', quickBorder );
+			conf.qtBorder !== null && table.setAttribute( 'border', quickBorder );
 			table.setAttribute( 'class', quickClass );
 			table.setStyles( quickStyle );
 			conf.qtWidth !== null && table.setStyle( 'width', quickWidth );
