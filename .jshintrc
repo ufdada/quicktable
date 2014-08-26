@@ -7,6 +7,7 @@
     "eqeqeq":        false, 
     "es3":        	 true, 
     "evil":          true,
+	"expr":			 true,
     "maxparams":     5,
     "maxdepth":      3,
     "maxstatements": 20,
